@@ -19,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/robabby/giphy-bot/issues"
   },
-  "homepage": "https://github.com/robabby/giphy-bot#readme"
+  "homepage": "https://github.com/robabby/giphy-bot#readme",
+  "dependencies": {
+    "discord.js": "^11.1.0",
+    "giphy": "0.0.4"
+  }
 }
