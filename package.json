@@ -1,0 +1,23 @@
+{
+  "name": "giphy-bot",
+  "version": "1.0.0",
+  "description": "A Giphy bot for Discord",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robabby/giphy-bot.git"
+  },
+  "keywords": [
+    "Giphy",
+    "Discord"
+  ],
+  "author": "InfamousxBliss",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robabby/giphy-bot/issues"
+  },
+  "homepage": "https://github.com/robabby/giphy-bot#readme"
+}
