@@ -1,14 +1,9 @@
-/*
-  A ping pong bot, whenever you send "ping", it replies "pong".
-*/
-
-// Import the discord.js module
+const Giphy = require('giphy')('dc6zaTOxFJmzC');
 const Discord = require('discord.js');
+const request = require('request');
 
 // Create an instance of a Discord client
 const client = new Discord.Client();
-
-// The token of your bot - https://discordapp.com/developers/applications/me
 const token = 'MzE3NDk3OTA0MzEzMTM5MjIx.DAktHA.WhKZQ-n0lqf2e9RKIowgyjnt1GI';
 
 // The ready event is vital, it means that your bot will only start reacting to information
@@ -19,11 +14,37 @@ client.on('ready', () => {
 
 // Create an event listener for messages
 client.on('message', message => {
-  // If the message is "ping"
-  if (message.content === 'ping') {
-    // Send "pong" to the same channel
-    message.channel.send('pong');
+
+  let sendResponse = function(payload) {
+    console.log(payload);
+    message.channel.send(payload);
   }
+
+  let search = message;
+  let url = 'http://api.giphy.com/v1/gifs/search?q=';
+  let key = 'dc6zaTOxFJmzC';
+  let apiKey = '&api_key=' + key;
+  let limit = '&limit=5'
+  let offset = '&offset=0';
+
+  let finalUrl = url + message.content + apiKey + limit + offset;
+
+  // console.log(finalUrl);
+
+  var options = {
+    url: finalUrl,
+    method: 'GET',
+    json:true
+  }
+
+  request(options, (error, response, body)=> {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('request made');
+      sendResponse(body.data[0].images.fixed_height.mp4);
+    }
+  });
 });
 
 // Log our bot in

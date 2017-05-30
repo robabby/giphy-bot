@@ -22,6 +22,7 @@
   "homepage": "https://github.com/robabby/giphy-bot#readme",
   "dependencies": {
     "discord.js": "^11.1.0",
+    "get-json": "0.0.3",
     "giphy": "0.0.4"
   }
 }
