@@ -2,6 +2,8 @@ const Giphy = require('giphy')('dc6zaTOxFJmzC');
 const Discord = require('discord.js');
 const request = require('request');
 
+const prefix = '!giphy ';
+
 // Create an instance of a Discord client
 const client = new Discord.Client();
 const token = 'MzE5NDY1MjE1MDE4MjcwNzIy.DBBUtw.N6jIgL_OuqS1fWk9MhAcRmgNsY8';
@@ -14,7 +16,18 @@ client.on('ready', () => {
 
 // Create an event listener for messages
 client.on('message', message => {
+  let query = '';
+
+  // if the author of the message is the bot, do nothing
   if (message.author.bot) return;
+
+  // if the message has our appropriate prefix, handle the query
+  if (message.content.indexOf(prefix) === 0) {
+    query = message.content.substring(prefix.length, message.content.length);
+    console.log("The query was: ", query);
+  } else {
+    return;
+  }
 
   let sendResponse = function(payload) {
     console.log(payload);
@@ -27,9 +40,9 @@ client.on('message', message => {
   let limit = '&limit=5'
   let offset = '&offset=0';
 
-  let finalUrl = url + message.content + apiKey + limit + offset;
+  let finalUrl = url + query + apiKey + limit + offset;
 
-  // console.log(finalUrl);
+  console.log(finalUrl);
 
   var options = {
     url: finalUrl,
@@ -41,7 +54,6 @@ client.on('message', message => {
     if (error) {
       console.log(error);
     } else {
-      console.log('request made');
       sendResponse(body.data[0].images.fixed_height.mp4);
     }
   });
