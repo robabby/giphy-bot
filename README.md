@@ -1,3 +1,3 @@
 # Giphy-bot
 
-A bot that will search Giphy and return a selection from the top responses.
+A Discord bot that will search the Giphy API and return a selection from the top responses.
