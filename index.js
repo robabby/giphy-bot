@@ -6,7 +6,6 @@ const request = require('request');
 const client = new Discord.Client();
 const token = 'MzE3NDk3OTA0MzEzMTM5MjIx.DAktHA.WhKZQ-n0lqf2e9RKIowgyjnt1GI';
 
-const prefix = '!';
 // The ready event is vital, it means that your bot will only start reacting to information
 // from Discord _after_ ready is emitted
 client.on('ready', () => {
