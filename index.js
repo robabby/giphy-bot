@@ -6,6 +6,7 @@ const request = require('request');
 const client = new Discord.Client();
 const token = 'MzE3NDk3OTA0MzEzMTM5MjIx.DAktHA.WhKZQ-n0lqf2e9RKIowgyjnt1GI';
 
+const prefix = '!';
 // The ready event is vital, it means that your bot will only start reacting to information
 // from Discord _after_ ready is emitted
 client.on('ready', () => {
@@ -14,13 +15,13 @@ client.on('ready', () => {
 
 // Create an event listener for messages
 client.on('message', message => {
+  if (message.author.bot) return;
 
   let sendResponse = function(payload) {
     console.log(payload);
     message.channel.send(payload);
   }
 
-  let search = message;
   let url = 'http://api.giphy.com/v1/gifs/search?q=';
   let key = 'dc6zaTOxFJmzC';
   let apiKey = '&api_key=' + key;
@@ -45,6 +46,8 @@ client.on('message', message => {
       sendResponse(body.data[0].images.fixed_height.mp4);
     }
   });
+
+  return;
 });
 
 // Log our bot in
