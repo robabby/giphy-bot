@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -22,8 +22,9 @@
   },
   "homepage": "https://github.com/robabby/giphy-bot#readme",
   "dependencies": {
-    "discord.js": "^11.1.0",
+    "discord.js": "^11.2.1",
     "get-json": "0.0.3",
-    "giphy": "0.0.4"
+    "giphy": "0.0.4",
+    "nodemon": "^1.14.2"
   }
 }
