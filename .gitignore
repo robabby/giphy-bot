@@ -1,7 +1,7 @@
 .git
 node_modules
 npm-debug.log
-keys.js
+config/dev.js
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
