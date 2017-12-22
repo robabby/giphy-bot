@@ -1,12 +1,13 @@
-const Giphy = require('giphy')('dc6zaTOxFJmzC');
+const keys = require('./config/keys');
+const Giphy = require('giphy')(keys.giphyApiKey);
 const Discord = require('discord.js');
 const request = require('request');
 
-const prefix = '!giphy ';
+const prefix = '!gif ';
 
 // Create an instance of a Discord client
 const client = new Discord.Client();
-const token = 'MzE5NDY1MjE1MDE4MjcwNzIy.DBBUtw.N6jIgL_OuqS1fWk9MhAcRmgNsY8';
+const token = keys.discordToken;
 
 // The ready event is vital, it means that your bot will only start reacting to information
 // from Discord _after_ ready is emitted
