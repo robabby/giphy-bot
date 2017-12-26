@@ -54,7 +54,7 @@ client.on('message', message => {
   request(options, (error, response, body)=> {
     if (error) {
       console.log(error);
-    } else if (!body.data[0].images) {
+    } else if (!body.data[0]) {
       sendResponse("https://media.giphy.com/media/9J7tdYltWyXIY/giphy.gif");
     } else {
       sendResponse(body.data[0].images.fixed_height.mp4);
